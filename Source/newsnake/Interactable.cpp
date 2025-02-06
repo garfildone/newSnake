@@ -5,7 +5,7 @@
 
 // Add default functionality here for any IInteractable functions that are not pure virtual.
 
-void IInteractabl::Interact(AActor* Interactor, bool bIsHead)
+void IInteractable::Interact(AActor* Interactor, bool bIsHead)
 {
 
 }
