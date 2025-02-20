@@ -45,7 +45,7 @@ void AFood::CollectEeat()
 	}
 }
 
-void AFood::Interctor(AActor* Interactor, bool bIsHead)
+void AFood::Interact(AActor* Interactor, bool bIsHead)
 {
 	if (bIsHead)
 	{

@@ -8,7 +8,7 @@
 #include "Food.generated.h"
 
 UCLASS()
-class NEWSNAKE_API AFood : public AActor
+class NEWSNAKE_API AFood : public AActor, public IInteractable
 {
 	GENERATED_BODY()
 	
