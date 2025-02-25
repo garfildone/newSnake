@@ -27,24 +27,6 @@ void AFood::Tick(float DeltaTime)
 
 }
 
-void AFood::CollectEeat()
-{
-	TArray<AActor*> CollectedActors;
-	GetOverlappingActors(CollectedActors);
-
-	for (int32 i = 0; i < CollectedActors.Num(); ++i)
-	{
-		ASnakeBase* const Test = Cast<ASnakeBase>(CollectedActors[i]);
-
-		if (Test)
-		{
-			Test->VisibleBodyChanck++;
-			Destroy(true, true);
-			break;
-		}
-	}
-}
-
 void AFood::Interact(AActor* Interactor, bool bIsHead)
 {
 	if (bIsHead)
