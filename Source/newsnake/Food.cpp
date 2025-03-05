@@ -25,6 +25,7 @@ void AFood::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
+	BufferTime += DeltaTime;
 }
 
 void AFood::Interact(AActor* Interactor, bool bIsHead)
@@ -36,6 +37,24 @@ void AFood::Interact(AActor* Interactor, bool bIsHead)
 		{
 			Snake->AddSnakeElement();
 			this->Destroy();
+		}
+	}
+}
+
+void AFood::CollectEeat()
+{
+	TArray<AActor*> CollectedActors;
+	GetOverlappingActors(CollectedActors);
+
+	for (int32 i = 0; i < CollectedActors.Num(); ++i)
+	{
+		ASnakeBase* const Test = Cast<ASnakeBase>(CollectedActors[i]);
+
+		if (Test)
+		{
+			Test->VisibleBodyChanck++;
+			Destroy(true, true);
+			break;
 		}
 	}
 }
