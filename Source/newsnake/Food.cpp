@@ -28,11 +28,11 @@ void AFood::Tick(float DeltaTime)
 	BufferTime += DeltaTime;
 }
 
-void AFood::Interact(AActor* Interactor, bool bIsHead)
+void AFood::Interact(AActor* Interactar, bool bIsHead)
 {
 	if (bIsHead)
 	{
-		auto Snake = Cast<ASnakeBase>(Interactor);
+		auto Snake = Cast<ASnakeBase>(Interactar);
 		if (IsValid(Snake))
 		{
 			Snake->AddSnakeElement();

@@ -41,6 +41,16 @@ public:
 	UPROPERTY()
 		EMovementDirection LastMoveDirection;
 
+	//For any Bounus speed
+	UPROPERTY(EditAnyWhere, BlueprintReadWrite, Category = "How long is any bonus valid")
+		float StepDelay;
+	UPROPERTY()
+		float BufferTime;
+
+	//For method SetLastElementSnale in SnakeElementBase
+	UPROPERTY(EditAnyWhere, BlueprintReadWrite, Category = "LastElement")
+		UStaticMesh* ChangesMesh;
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;

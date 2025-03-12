@@ -13,6 +13,9 @@ ASnakeBase::ASnakeBase()
 	ElementSize = 100.f;
 	MovementSpeed = 10.f;
 	LastMoveDirection = EMovementDirection::DOWN;
+
+	StepDelay = 2.f;
+	BufferTime = 0;
 }
 
 // Called when the game starts or when spawned
@@ -28,6 +31,13 @@ void ASnakeBase::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 	Move();
+
+	BufferTime += DeltaTime;
+	if (BufferTime >= StepDelay)
+	{
+		SetActorTickInterval(MovementSpeed);
+		BufferTime = 0;
+	}
 }
 
 void ASnakeBase::AddSnakeElement(int ElementsNum)

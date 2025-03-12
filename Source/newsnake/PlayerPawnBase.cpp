@@ -5,6 +5,7 @@
 #include "Engine/classes/Camera/CameraComponent.h"
 #include "SnakeBase.h"
 #include "Components/InputComponent.h"
+#include "Food.h"
 
 // Sets default values
 APlayerPawnBase::APlayerPawnBase()
@@ -28,7 +29,20 @@ void APlayerPawnBase::BeginPlay()
 void APlayerPawnBase::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
+	BufferTimeForEat += DeltaTime;
+	BufferTimeForBonus += DeltaTime;
 
+	if (BufferTimeForEat >= HowOftenSpawnEat)
+	{
+		RandomSpawnEat();
+		BufferTimeForEat = 0;
+	}
+
+	if (BufferTimeForBonus >= HowOftenSpawnBonus)
+	{
+		RandomSpawnBonus();
+		BufferTimeForBonus = 0;
+	}
 }
 
 // Called to bind functionality to input
