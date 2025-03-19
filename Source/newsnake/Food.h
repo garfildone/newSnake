@@ -7,6 +7,8 @@
 #include "Interactable.h"
 #include "Food.generated.h"
 
+class UStaticMeshComonent;
+
 UCLASS()
 class NEWSNAKE_API AFood : public AActor, public IInteractable
 {
@@ -26,5 +28,4 @@ public:
 
 	virtual void Interact(AActor* Interactar, bool bIsHead) override;
 
-	void CollectEeat();
 };
