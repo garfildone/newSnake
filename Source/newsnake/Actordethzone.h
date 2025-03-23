@@ -7,17 +7,21 @@
 #include "Interactable.h"
 #include "Actordethzone.generated.h"
 
+class UStaticMeshComponent;
+
 UCLASS()
-class NEWSNAKE_API AActordethzone : public AActor
+class NEWSNAKE_API AActordethzone : public AActor, public IInteractable
 {
 	GENERATED_BODY()
 	
+
 public:	
 	// Sets default values for this actor's properties
 	AActordethzone();
 
 	UPROPERTY(VisibleAnyWhere, BlueprintReadOnly)
 		UStaticMeshComponent* MeshComponent;
+
 
 protected:
 	// Called when the game starts or when spawned
