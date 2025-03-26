@@ -12,7 +12,7 @@ ASnakeBase::ASnakeBase()
 	PrimaryActorTick.bCanEverTick = true;
 	ElementSize = 100.f;
 	MovementSpeed = 10.f;
-	LastMoveDirection = EMovementDirection::DOWN;
+	LastMoveDirection = EMovementDirection::LEFT;
 
 	StepDelay = 2.f;
 	BufferTime = 0;
