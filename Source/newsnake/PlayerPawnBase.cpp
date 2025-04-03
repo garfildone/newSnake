@@ -89,3 +89,52 @@ void APlayerPawnBase::HandlePlayerHorizontalInput(float value)
 	}
 }
 
+void APlayerPawnBase::RandomSpawnEat()
+{
+	float SpawnY = FMath::FRandRange(MinY, MaxY);
+	float SpawnX = FMath::FRandRange(MinX, MaxX);
+	FRotator StartPointRotation = FRotator(0, 0, 0);
+
+	FVector SpawnPoint = FVector(SpawnX, SpawnY, SpawnZ);
+	if (IsValid(SnakeActor))
+	{
+		if (GetWorld())
+		{
+			FoodActor = GetWorld()->SpawnActor<AFood>(FoodActorClass, FTransform(SpawnPoint));
+		}
+	}
+}
+
+void APlayerPawnBase::RandomSpawnBonus()
+{
+
+	float SpawnY = FMath::FRandRange(MinY, MaxY);
+	float SpawnX = FMath::FRandRange(MinX, MaxX);
+	FRotator StartPointRotation = FRotator(0, 0, 0);
+	int16 WhySpawn = FMath::RandRange(0, 1);
+	FVector SpawnPoint = FVector(SpawnX, SpawnY, SpawnZ);
+
+	switch (WhySpawn)
+	{
+	case 0:
+		if (IsValid(SnakeActor))
+		{
+			if (GetWorld())
+			{
+				GetWorld()->SpawnActor<AActor>(FirstActorClass, FTransform(SpawnPoint));
+			}
+		}
+		break;
+	case 1:
+		if (IsValid(SnakeActor))
+		{
+			if (GetWorld())
+			{
+				GetWorld()->SpawnActor<AActor>(SecondActorClass, FTransform(SpawnPoint));
+			}
+		}
+		break;
+
+	}
+}
+

@@ -3,14 +3,13 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "GameFramework/Actor.h"
-#include "Interactable.h"
+#include "BonusBase.h"
 #include "Food.generated.h"
 
 class UStaticMeshComonent;
 
 UCLASS()
-class NEWSNAKE_API AFood : public AActor, public IInteractable
+class NEWSNAKE_API AFood : public ABonusBase
 {
 	GENERATED_BODY()
 	

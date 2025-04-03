@@ -5,11 +5,11 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
 #include "Interactable.h"
-#include <newsnake/SnakeBase.h>
-#include <newsnake/PlayerPawnBase.h>
 #include "SnakeElementBase.generated.h"
 
 class UStaticMeshComponent;
+class UStaticMesh;
+class ASnakeBase;
 
 UCLASS()
 class NEWSNAKE_API ASnakeElementBase : public AActor
@@ -23,21 +23,11 @@ public:
 	UPROPERTY(VisibleAnyWhere, BlueprintReadOnly)
 		UStaticMeshComponent* MeshComponent;
 
+	UPROPERTY(EditAnyWhere, BlueprintReadWrite, Category = "WhatIsTheLastElement")
+		UStaticMesh* Mesh;
+
 	UPROPERTY()
 		ASnakeBase* SnakeOwner;
-
-	UPROPERTY(EditDefaultsOnly)
-		TSubclassOf<ASnakeBase> SnakeActorClass;
-
-	//A range for Creating Food/Bonus by Y
-	UPROPERTY(EditAnyWhere)
-		float MinY = -1350.f; float MaxY = 1340.f;
-	//A range for Creating Food/Bonus by X
-	UPROPERTY(EditAnyWhere)
-		float MinX = -1330.f; float MaxX = 1320.f;
-	// Creating Foot by Z
-	UPROPERTY()
-		float SpawnZ = 2.f;
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
@@ -50,7 +40,7 @@ public:
 		void SetFirstElementType();
 	    void SetFirstElementType_Implementation();
 
-		virtual void Interact(AActor* Interactor, bool bIsHead);
+		virtual void Interact(AActor* Interactar, bool bIsHead) override;
 
 		UFUNCTION()
 			void HandleBeginOverlap(UPrimitiveComponent* OverlappedComponent,
@@ -62,4 +52,7 @@ public:
 
 		UFUNCTION()
 			void ToggleCollision();
+
+		UFUNCTION(BlueprintCallable)
+			void SetLastElementSnake(TArray<ASnakeElementBase*> SnakeElements, UStaticMesh* NewMesh);
 };

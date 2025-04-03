@@ -74,4 +74,9 @@ public:
 		void HandlePlayerVerticalinput(float value);
 	UFUNCTION()
 		void HandlePlayerHorizontalInput(float value);
+
+	UFUNCTION()
+		void RandomSpawnEat();
+	UFUNCTION(BlueprintCallable)
+		void RandomSpawnBonus();
 };

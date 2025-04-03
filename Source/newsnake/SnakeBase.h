@@ -68,5 +68,4 @@ public:
 	UFUNCTION()
 		void SnakeElementOverlap(ASnakeElementBase* OverlappedElement, AActor* Other);
 
-	UPROPERTY(EditAnywhere) int32 VisibleBodyChanck = 3;
 };
