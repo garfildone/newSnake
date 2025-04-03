@@ -8,6 +8,7 @@
 
 class UCameraComponent;
 class ASnakeBase;
+class AFood;
 
 UCLASS()
 class NEWSNAKE_API APlayerPawnBase : public APawn
