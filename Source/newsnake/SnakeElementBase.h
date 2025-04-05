@@ -12,7 +12,7 @@ class UStaticMesh;
 class ASnakeBase;
 
 UCLASS()
-class NEWSNAKE_API ASnakeElementBase : public AActor
+class NEWSNAKE_API ASnakeElementBase : public AActor, public IInteractable
 {
 	GENERATED_BODY()
 	
