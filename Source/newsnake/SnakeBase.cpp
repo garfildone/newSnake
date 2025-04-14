@@ -64,27 +64,20 @@ void ASnakeBase::AddSnakeElement(int ElementsNum)
 void ASnakeBase::Move()
 {
 	FVector MovementVector(ForceInitToZero);
-	FRotator NewRotator;
-
-	float M_Speed = ElementSize;
 
 	switch (LastMoveDirection)
 	{
 	case EMovementDirection::UP:
-		MovementVector.X += MovementSpeed;
-		MovementVector.Rotation() = FRotator(0.f, -90.f, 0.f);
+		MovementVector.X += ElementSize;
 		break;
 	case EMovementDirection::DOWN:
-		MovementVector.X -= MovementSpeed;
-		MovementVector.Rotation() = FRotator(0.f, 90.f, 0.f);
+		MovementVector.X -= ElementSize;
 		break;
 	case EMovementDirection::LEFT:
-		MovementVector.Y += MovementSpeed;
-		MovementVector.Rotation() = FRotator(90.f, -90.f, 0.f);
+		MovementVector.Y += ElementSize;
 		break;
 	case EMovementDirection::RIGHT:
-		MovementVector.Y -= MovementSpeed;
-		MovementVector.Rotation() = FRotator(-90.f, -90.f, 0.f);
+		MovementVector.Y -= ElementSize;
 		break;
 	}
 
